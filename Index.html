@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joanne Pendo Design Ltd</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: url('https://via.placeholder.com/1600x600?text=Joanne+Pendo+Design') no-repeat center/cover;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      font-size: 1.3rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #111;
+      margin-bottom: 20px;
+      border-left: 5px solid #c44;
+      padding-left: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    .services ul, .contact ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .services li, .contact li {
+      background: #eee;
+      margin: 8px 0;
+      padding: 10px;
+      border-left: 4px solid #c44;
+    }
+
+    /* Image Slider */
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+    }
+
+    .slider-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .slider-buttons button {
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Joanne Pendo Design Ltd</h1>
+    <p>Where Fashion Meets Innovation</p>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>About Us</h2>
+      <p>Joanne Pendo Design Ltd is a creative fashion house dedicated to elegance, empowerment, and originality. From custom garments to creative direction and styling, we bring your fashion vision to life with professional craftsmanship rooted in culture and luxury.</p>
+    </section>
+
+    <section class="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li><strong>Custom Fashion Design:</strong> Couture, bridal, executive and occasion wear tailored to you.</li>
+        <li><strong>Styling & Image Consulting:</strong> Personal and brand styling to elevate confidence and presence.</li>
+        <li><strong>Creative Direction:</strong> Visual storytelling for shoots, fashion labels and campaigns.</li>
+        <li><strong>Workshops & Mentoring:</strong> Fashion education for aspiring designers and stylists.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Signature Collection Slider</h2>
+      <div class="slider">
+        <div class="slides" id="slides">
+          <div class="slide"><img src="https://via.placeholder.com/1000x500?text=Bridal+Collection" alt="Bridal"></div>
+          <div class="slide"><img src="https://via.placeholder.com/1000x500?text=Executive+Looks" alt="Executive"></div>
+          <div class="slide"><img src="https://via.placeholder.com/1000x500?text=Afro-Modern+Style" alt="Afro Modern"></div>
+        </div>
+        <div class="slider-buttons">
+          <button onclick="prevSlide()">‹</button>
+          <button onclick="nextSlide()">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Client Testimonials</h2>
+      <p>"Joanne didn’t just make a dress—she captured my story." – Grace M., Bride</p>
+      <p>"Her creative direction brought our brand to life with power and beauty." – Naomi K., LuxeWear CEO</p>
+    </section>
+
+    <section class="contact">
+      <h2>Contact & Booking</h2>
+      <ul>
+        <li><strong>Email:</strong> hello@joannependodesign.com</li>
+        <li><strong>Phone/WhatsApp:</strong> +254 712 345 678</li>
+        <li><strong>Instagram:</strong> <a href="https://instagram.com/joannependodesign" target="_blank">@joannependodesign</a></li>
+        <li><strong>Location:</strong> Nairobi, Kenya</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Joanne Pendo Design Ltd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Simple Image Slider Script
+    let slideIndex = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
+
+    function showSlide(index) {
+      if (index < 0) slideIndex = totalSlides - 1;
+      else if (index >= totalSlides) slideIndex = 0;
+      else slideIndex = index;
+
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(slideIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(slideIndex - 1);
+    }
+
+    // Auto slide every 5 seconds
+    setInterval(nextSlide, 5000);
+  </script>
+
+</body>
+</html>
